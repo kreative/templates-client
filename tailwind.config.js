@@ -10,4 +10,4 @@ module.exports = {
     extend: {},
   },
   plugins: ["@tailwindcss/forms"],
-}
+};
