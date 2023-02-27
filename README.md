@@ -1,1 +1,1 @@
-# welcome dreamer to Kreative Templates API
+# welcome dreamer to Kreative Templates Client
