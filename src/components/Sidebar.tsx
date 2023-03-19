@@ -36,7 +36,7 @@ export default function Sidebar({ categories, selectedCategory }) {
         <ClickableItem
           key="all"
           name="All Templates"
-          link='/obsidian'
+          link="/obsidian"
           selected={selectedCategory === null}
         />
         {_categories.map((category: any) => (
@@ -50,11 +50,15 @@ export default function Sidebar({ categories, selectedCategory }) {
       </div>
       <div id="request-template" className="pb-8">
         <p className="text-sm pb-2 text-gray-500">CAN&apos;T FIND SOMETHING?</p>
-        <ClickableItem name="Request a template" link='#' selected={null} />
+        <ClickableItem name="Request a template" link="#" selected={null} />
       </div>
       <div id="become-an-author">
         <p className="text-sm pb-2 text-gray-500">HAVE A TEMPLATE?</p>
-        <ClickableItem name="Become an author" link='/become-an-author' selected={null} />
+        <ClickableItem
+          name="Become an author"
+          link="/become-an-author"
+          selected={null}
+        />
       </div>
     </div>
   );
