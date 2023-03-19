@@ -1,11 +1,4 @@
-import { QueryClient, useQuery, dehydrate } from "@tanstack/react-query";
-
-const fetchCategories = async () => {
-  const response = await fetch(
-    "https://api.kreativetemplates.co/v1/categories"
-  );
-  return response.json();
-};
+import Link from "next/link";
 
 const transformText = (text: string) => {
   const words = text.split("-");
@@ -16,45 +9,36 @@ const transformText = (text: string) => {
   return transformedWords.join(" ");
 };
 
-export default function CategoryList(): JSX.Element {
-  const { data, isLoading, isSuccess, error } = useQuery(
-    ["categories"],
-    fetchCategories
+function CategoryItem({ name, selected }) {
+  return (
+    <div>
+      <Link href={`/obsidian/categories/${name}`}>
+        <p
+          className={`${
+            selected ? "text-black" : "text-gray-600 hover:text-gray-900"
+          } cursor-pointer py-1 rounded-md text-lg font-medium`}
+          aria-current={selected ? "page" : undefined}
+        >
+          {transformText(name)}
+        </p>
+      </Link>
+    </div>
   );
-
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
-
-  if (error) {
-    return <div>Error: {error}</div>;
-  }
-
-  if (isSuccess) {
-    return (
-      <div>
-        <p className="text-xs pb-2 text-gray-500">BROWSE BY CATEGORY</p>
-        {data.data.map((category) => (
-          <div key={category.name}>
-            <p className="text-lg py-1 text-gray-600 font-medium">
-              {transformText(category.name)}
-            </p>
-          </div>
-        ))}
-      </div>
-    );
-  }
 }
 
-export const getServerSideProps = async () => {
-  const queryClient = new QueryClient();
+export default function CategoryList({ categories, selectedCategory }) {
+  const _categories = Array.from(categories);
 
-  await queryClient.fetchQuery(["categories"], () => fetchCategories());
-
-  return {
-    props: {
-      // dehydrate query cache
-      dehydratedState: dehydrate(queryClient),
-    },
-  };
-};
+  return (
+    <div>
+      <p className="text-xs pb-2 text-gray-500">BROWSE BY CATEGORY</p>
+      {_categories.map((category: any) => (
+        <CategoryItem
+          key={category.name}
+          name={category.name}
+          selected={category.name === selectedCategory}
+        />
+      ))}
+    </div>
+  );
+}
