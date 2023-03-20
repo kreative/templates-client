@@ -1,7 +1,9 @@
 import Image from "next/image";
 import { ITemplateCardProps } from "@/types/ITemplateCardProps";
 
-const TemplateCard: React.FC<ITemplateCardProps> = (props: ITemplateCardProps): JSX.Element => {
+const TemplateCard: React.FC<ITemplateCardProps> = (
+  props: ITemplateCardProps
+): JSX.Element => {
   return (
     <div>
       <Image

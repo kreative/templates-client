@@ -43,7 +43,7 @@ export default function Home(props: any): JSX.Element {
               {data && data.length > 0 && (
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-10">
                   {data.map((template: any) => (
-                    <TemplateCard 
+                    <TemplateCard
                       key={template.id}
                       name={template.name}
                       tagline={template.tagline}

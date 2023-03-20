@@ -4,8 +4,8 @@
 // since we don't have a crazy large amount of templates, we don't need to worry about infinite scroll just yet
 export default async function fetchTemplates(category = null) {
   const url = `https://api.kreativetemplates.co/v1/templates?limit=30&page=1&selection=limited${
-      category ? `&category=${category}` : ""
-    }`;
+    category ? `&category=${category}` : ""
+  }`;
 
   const res = await fetch(url);
   const payload = await res.json();
