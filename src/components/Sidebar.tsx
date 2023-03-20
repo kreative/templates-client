@@ -36,7 +36,7 @@ export default function Sidebar({ categories, selectedCategory }) {
         <ClickableItem
           key="recently-added"
           name="Recently added"
-          link='/obsidian'
+          link="/obsidian"
           selected={selectedCategory === null}
         />
         {_categories.map((category: any) => (
@@ -50,7 +50,11 @@ export default function Sidebar({ categories, selectedCategory }) {
       </div>
       <div id="become-an-author">
         <p className="text-sm pb-2 text-gray-500">HAVE A TEMPLATE?</p>
-        <ClickableItem name="Submit your own" link='/become-an-author' selected={null} />
+        <ClickableItem
+          name="Submit your own"
+          link="/become-an-author"
+          selected={null}
+        />
       </div>
     </div>
   );
