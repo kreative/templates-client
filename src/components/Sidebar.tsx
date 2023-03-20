@@ -1,13 +1,5 @@
 import Link from "next/link";
-
-const transformText = (text: string) => {
-  const words = text.split("-");
-  const transformedWords = words.map((word) => {
-    return word.charAt(0).toUpperCase() + word.slice(1);
-  });
-
-  return transformedWords.join(" ");
-};
+import normalizeText from "@/lib/normalizeText";
 
 function ClickableItem({ name, link, selected }) {
   return (
@@ -42,7 +34,7 @@ export default function Sidebar({ categories, selectedCategory }) {
         {_categories.map((category: any) => (
           <ClickableItem
             key={category.name}
-            name={transformText(category.name)}
+            name={normalizeText(category.name)}
             link={`/obsidian/categories/${category.name}`}
             selected={category.name === selectedCategory}
           />
