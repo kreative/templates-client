@@ -15,7 +15,7 @@ function ClickableItem({ name, link, selected }) {
       <Link href={link}>
         <p
           className={`${
-            selected ? "text-black" : "text-gray-600 hover:text-gray-900"
+            selected ? "text-purple-700" : "text-gray-600 hover:text-purple-700"
           } cursor-pointer rounded-md text-2xl font-medium`}
           aria-current={selected ? "page" : undefined}
         >
@@ -34,8 +34,8 @@ export default function Sidebar({ categories, selectedCategory }) {
       <div id="category-list" className="pb-8">
         <p className="text-sm pb-2 text-gray-500">BROWSE BY CATEGORY</p>
         <ClickableItem
-          key="all"
-          name="All Templates"
+          key="recently-added"
+          name="Recently added"
           link='/obsidian'
           selected={selectedCategory === null}
         />
