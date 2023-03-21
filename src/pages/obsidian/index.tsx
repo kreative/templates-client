@@ -16,7 +16,10 @@ export default function Home(props: any): JSX.Element {
     <div>
       <Head>
         <title>Obsidian Templates - Kreative Templates</title>
-        <meta name="description" content="Obsidian" />
+        <meta
+          name="description"
+          content="Obsidian templates - Markdown templates for Obsidian note taking application"
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navbar />
@@ -43,7 +46,7 @@ export default function Home(props: any): JSX.Element {
               {data && data.length > 0 && (
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-10">
                   {data.map((template: any) => (
-                    <TemplateCard 
+                    <TemplateCard
                       key={template.id}
                       name={template.name}
                       tagline={template.tagline}
