@@ -1,4 +1,6 @@
 import "@/styles/globals.css";
+import Script from "next/script";
+import React from "react";
 import type { AppProps } from "next/app";
 import { CookiesProvider } from "react-cookie";
 import localFont from "@next/font/local";
@@ -49,14 +51,25 @@ const queryClient = new QueryClient();
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <QueryClientProvider client={queryClient}>
-      <CookiesProvider>
-        <Hydrate state={pageProps.dehydratedState}>
-          <div className={`${craftworkSans.variable} font-sans`}>
-            <Component {...pageProps} />
-          </div>
-        </Hydrate>
-      </CookiesProvider>
-    </QueryClientProvider>
+    <React.Fragment>
+      <QueryClientProvider client={queryClient}>
+        <CookiesProvider>
+          <Hydrate state={pageProps.dehydratedState}>
+            <div className={`${craftworkSans.variable} font-sans`}>
+              <Component {...pageProps} />
+            </div>
+          </Hydrate>
+        </CookiesProvider>
+      </QueryClientProvider>
+      <Script src="https://scripts.simpleanalyticscdn.com/latest.js" />
+      <noscript>
+        {/* eslint-disable @next/next/no-img-element */}
+        <img
+          src="https://queue.simpleanalyticscdn.com/noscript.gif"
+          alt=""
+          referrerPolicy="no-referrer-when-downgrade"
+        />
+      </noscript>
+    </React.Fragment>
   );
 }
