@@ -5,11 +5,11 @@ import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
 const navigation = [
-  { name: "Obsidian templates", href: "/obsidian" },
-  { name: "Free stickers", href: "/free-stickers" },
-  { name: "Contact", href: "/contact-us" },
-  { name: "Support", href: "https://support.kreativeusa.com/templates" },
-  { name: "Request template", href: "/request-template" },
+  { name: "For Obsidian", href: "/obsidian" },
+  { name: "FAQs", href: "/faqs" },
+  { name: "Contact us", href: "https://support.kreativeusa.com/templates#submit-issue" },
+  { name: "Get help", href: "https://support.kreativeusa.com/templates" },
+  { name: "Request", href: "/request-template" },
 ];
 
 export default function Example() {
@@ -49,6 +49,7 @@ export default function Example() {
               key={item.name}
               href={item.href}
               className="text-md font-normal leading-6 text-gray-900"
+              target={item.href.startsWith("http") ? "_blank" : undefined}
             >
               {item.name}
             </Link>
