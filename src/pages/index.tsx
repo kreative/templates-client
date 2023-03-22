@@ -1,8 +1,9 @@
-import Head from 'next/head'
-import Image from 'next/image'
+import { useEffect } from "react"
 
 export default function Home() {
-  return (
-    <div className="text-2xl text-bold">Hello</div>
-  )
+  useEffect(() => {
+    window.location.href = "/obsidian";
+  });
+
+  return <div></div>;
 }
