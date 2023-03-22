@@ -35,6 +35,8 @@ const TemplateCard: React.FC<ITemplateCardProps> = (
           alt="Template thumnbnail image"
           width={600}
           height={600}
+          placeholder="blur"
+          blurDataURL={props.thumbnailUrl}
         />
       </Link>
       <div className="flex items-start pt-4">
@@ -44,6 +46,8 @@ const TemplateCard: React.FC<ITemplateCardProps> = (
           alt={props.authorName}
           width={48}
           height={48}
+          placeholder="blur"
+          blurDataURL={props.authorAvatar}
         />
         <div className="ml-4">
           <Link href={`/templates/${props.slug}`}>
