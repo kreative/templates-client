@@ -1,5 +1,5 @@
 import Link from "next/link";
-import normalizeText from "@/lib/normalizeText";
+import normalizeCategory from "@/lib/normalizeCategory";
 
 function ClickableItem({ name, link, selected }) {
   return (
@@ -34,7 +34,7 @@ export default function Sidebar({ categories, selectedCategory }) {
         {_categories.map((category: any) => (
           <ClickableItem
             key={category.name}
-            name={normalizeText(category.name)}
+            name={normalizeCategory(category.name)}
             link={`/obsidian/categories/${category.name}`}
             selected={category.name === selectedCategory}
           />
