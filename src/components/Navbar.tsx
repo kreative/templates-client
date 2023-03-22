@@ -12,7 +12,7 @@ const navigation = [
     href: "https://support.kreativeusa.com/templates#submit-issue",
   },
   { name: "Get help", href: "https://support.kreativeusa.com/templates" },
-  { name: "Request", href: "/request-template" },
+  { name: "Request templates", href: "/request-template" },
 ];
 
 export default function Example() {
@@ -25,7 +25,7 @@ export default function Example() {
         aria-label="Global"
       >
         <div className="flex lg:flex-1">
-          <Link href="#" className="-m-1.5 p-1.5">
+          <Link href="/obsidian" className="-m-1.5 p-1.5">
             <span className="sr-only">Kreative Templates</span>
             <Image
               className="h-7 w-auto"
