@@ -1,33 +1,69 @@
 import Image from "next/image";
+import Link from "next/link";
+import { useState } from "react";
 import { ITemplateCardProps } from "@/types/ITemplateCardProps";
+import normalizeCategory from "../lib/normalizeCategory";
 
-const TemplateCard: React.FC<ITemplateCardProps> = (props: ITemplateCardProps): JSX.Element => {
+const TemplateCard: React.FC<ITemplateCardProps> = (
+  props: ITemplateCardProps
+): JSX.Element => {
+  const [isHovering, setIsHovering] = useState(false);
+
+  const normalizePrice = (price: string): JSX.Element => {
+    if (price === "0") {
+      return <span>Free</span>;
+    } else {
+      return (
+        <span>
+          <span className="text-sm -mr-1">$</span>{" "}
+          <span className="text-lg">{price}</span>
+        </span>
+      );
+    }
+  };
+
   return (
-    <div>
-      <Image
-        className="w-full h-auto"
-        src={props.thumbnailUrl}
-        alt="Template thumnbnail image"
-        width={500}
-        height={500}
-      />
-      <div className="flex items-start">
-        <div>
-          <Image
-            className="h-4 w-4 rounded-full"
-            src={props.authorAvatar}
-            alt={props.authorName}
-            width={24}
-            height={24}
-          />
-        </div>
-        <div className="ml-2">
-          <h2>{props.name}</h2>
+    <div
+      className="hvr-grow pb-4"
+      onMouseEnter={() => setIsHovering(true)}
+      onMouseLeave={() => setIsHovering(false)}
+    >
+      <Link href={`/templates/${props.slug}`}>
+        <Image
+          className="w-full h-auto rounded-lg"
+          src={props.thumbnailUrl}
+          alt="Template thumnbnail image"
+          width={600}
+          height={600}
+        />
+      </Link>
+      <div className="flex items-start pt-4">
+        <Image
+          className="w-12 h-12 rounded-full"
+          src={props.authorAvatar}
+          alt={props.authorName}
+          width={48}
+          height={48}
+        />
+        <div className="ml-4">
+          <Link href={`/templates/${props.slug}`}>
+            <h3>
+              <span className="text-xl font-bold hover:text-purple-700">{props.name}</span>{" "}
+              <span className={isHovering ? "inline-block" : "hidden"}>
+                <span className="text-gray-500">for</span>{" "}
+                {normalizePrice(props.price)}
+              </span>
+            </h3>
+          </Link>
           <p>
-            by {props.authorName} for {props.price}
+            by {props.authorName} <span className="text-gray-500">in</span>{" "}
+            <Link
+              href={`/categories/${props.categoryName}`}
+              className="underline hover:text-purple-500"
+            >
+              {normalizeCategory(props.categoryName)}
+            </Link>
           </p>
-          <p>{props.tagline}</p>
-          <p>{props.categoryName}</p>
         </div>
       </div>
     </div>
