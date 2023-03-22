@@ -2,7 +2,6 @@ import Head from "next/head";
 import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
 import fetchCategories from "@/lib/fetchCategories";
 import fetchTemplates from "@/lib/fetchTemplates";
-import normalizeText from "@/lib/normalizeText";
 import Sidebar from "@/components/Sidebar";
 import Navbar from "@/components/Navbar";
 import TemplateCard from "@/components/TemplateCard";
@@ -44,7 +43,7 @@ export default function Home(props: any): JSX.Element {
               {!data && <div>No templates found</div>}
               {data && data.length === 0 && <div>No templates found</div>}
               {data && data.length > 0 && (
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-10">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 pt-10">
                   {data.map((template: any) => (
                     <TemplateCard
                       key={template.id}
@@ -54,7 +53,8 @@ export default function Home(props: any): JSX.Element {
                       authorName={template.author.displayName}
                       authorAvatar={template.author.avatarUrl}
                       price={template.price}
-                      categoryName={normalizeText(template.category.name)}
+                      categoryName={template.category.name}
+                      slug={template.slug}
                     />
                   ))}
                 </div>
