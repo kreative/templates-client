@@ -202,6 +202,19 @@
     "@tanstack/query-core" "4.24.10"
     use-sync-external-store "^1.2.0"
 
+"@typeform/embed-react@^2.19.0":
+  version "2.19.0"
+  resolved "https://registry.yarnpkg.com/@typeform/embed-react/-/embed-react-2.19.0.tgz#10bd4d596a4b94ab0be893888b0ea3211524f400"
+  integrity sha512-0uA76vltS/Plg7cAuMORTkc6yyG0Q/ZbIh7byjPaxbnypw5u6+J1eGNCCyGcIpe+xR+u6EBb0VuhWdH9YhBYzg==
+  dependencies:
+    "@typeform/embed" "2.9.2"
+    fast-deep-equal "^3.1.3"
+
+"@typeform/embed@2.9.2":
+  version "2.9.2"
+  resolved "https://registry.yarnpkg.com/@typeform/embed/-/embed-2.9.2.tgz#2f5a937bf736e4c66a77bb7fb9dd4bb102d47afa"
+  integrity sha512-aCOUXPAwHo6/3AJNl+6aXqkvB+E5V+DqWae4KUYXd27HrqMomUdsp7jK+yGF7RiFP+PfNmWpi9OiKQUC2SBa8g==
+
 "@types/cookie@^0.3.3":
   version "0.3.3"
   resolved "https://registry.yarnpkg.com/@types/cookie/-/cookie-0.3.3.tgz#85bc74ba782fb7aa3a514d11767832b0e3bc6803"
