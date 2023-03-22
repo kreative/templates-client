@@ -4,6 +4,7 @@ import fetchCategories from "@/lib/fetchCategories";
 import fetchTemplates from "@/lib/fetchTemplates";
 import Sidebar from "@/components/Sidebar";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import TemplateCard from "@/components/TemplateCard";
 
 export default function Home(props: any): JSX.Element {
@@ -63,6 +64,7 @@ export default function Home(props: any): JSX.Element {
           </div>
         </div>
       </main>
+      <Footer />
     </div>
   );
 }
