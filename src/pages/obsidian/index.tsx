@@ -24,13 +24,18 @@ export default function Home(props: any): JSX.Element {
       </Head>
       <Navbar />
       <main>
-        <div className="mx-auto max-w-7xl px-6 pt-10" aria-label="Top">
+        <div className="mx-auto max-w-7xl px-6 pt-2" aria-label="Top">
           <div className="grid grid-cols-4 gap-4">
             <div className="col-span-1">
-              <Sidebar categories={props.categories} selectedCategory={null} />
+              <div className="sticky top-0 pt-10">
+                <Sidebar
+                  categories={props.categories}
+                  selectedCategory={null}
+                />
+              </div>
             </div>
             <div className="col-span-3">
-              <div id="splash" className="pt-5 w-10/12">
+              <div id="splash" className="pt-10 w-10/12">
                 <h1 className="text-5xl font-bold text-black pb-6">
                   Obsidian templates
                 </h1>
