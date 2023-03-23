@@ -8,7 +8,7 @@ import Footer from "@/components/Footer";
 import TemplateCard from "@/components/TemplateCard";
 
 export default function Home(props: any): JSX.Element {
-  const { data, isFetching } = useQuery(["templates"], () => {
+  const { data } = useQuery(["templates"], () => {
     return fetchTemplates();
   });
 
@@ -40,7 +40,6 @@ export default function Home(props: any): JSX.Element {
                   files. Boost your workflow with our pre-designed templates.
                 </p>
               </div>
-              {isFetching && <div>Loading templates...</div>}
               {!data && <div>No templates found</div>}
               {data && data.length === 0 && <div>No templates found</div>}
               {data && data.length > 0 && (
