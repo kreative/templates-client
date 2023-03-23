@@ -18,8 +18,8 @@ const navigation = {
 export default function Footer() {
   return (
     <footer className="bg-white border-t border-gray-300 mt-24">
-      <div className="mx-auto max-w-7xl overflow-hidden pb-10 pt-16 px-6 sm:pb-12 lg:px-8">
-        <div className="pb-6">
+      <div className="mx-auto max-w-7xl overflow-hidden pb-10 pt-12 px-6 sm:pb-12 lg:px-8">
+        <div className="pb-10">
           <Link href="/obsidian">
             <svg
               width="271"
