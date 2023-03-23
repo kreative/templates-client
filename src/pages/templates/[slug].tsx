@@ -28,11 +28,7 @@ export default function SingleTemplate(props: any): JSX.Element {
       <main>
         <div className="mx-auto max-w-7xl px-6 pt-10" aria-label="Top">
           {!data && <div>No template found</div>}
-          {data && (
-            <div>
-              {data.name}
-            </div>
-          )}
+          {data && <div>{data.name}</div>}
         </div>
       </main>
       <Footer />
