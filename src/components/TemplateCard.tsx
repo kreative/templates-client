@@ -1,9 +1,19 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { ITemplateCardProps } from "@/types/ITemplateCardProps";
 import normalizeCategory from "../lib/normalizeCategory";
 import normalizePrice from "../lib/normalizePrice";
+
+interface ITemplateCardProps {
+  name: string;
+  authorName: string;
+  authorAvatar: string;
+  price: string;
+  tagline: string;
+  thumbnailUrl: string;
+  slug: string;
+  categoryName: string;
+};
 
 const TemplateCard: React.FC<ITemplateCardProps> = (
   props: ITemplateCardProps

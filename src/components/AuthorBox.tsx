@@ -1,5 +1,10 @@
 import Image from "next/image";
-import { IAuthorBoxProps } from "../types/IAuthorBoxProps";
+
+interface IAuthorBoxProps {
+  displayName: string;
+  avatarUrl: string;
+  bio: string;
+};
 
 const AuthorBox: React.FC<IAuthorBoxProps> = (
   props: IAuthorBoxProps
