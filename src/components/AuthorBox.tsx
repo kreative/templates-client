@@ -4,7 +4,7 @@ interface IAuthorBoxProps {
   displayName: string;
   avatarUrl: string;
   bio: string;
-};
+}
 
 const AuthorBox: React.FC<IAuthorBoxProps> = (
   props: IAuthorBoxProps
