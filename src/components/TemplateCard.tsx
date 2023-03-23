@@ -3,24 +3,12 @@ import Link from "next/link";
 import { useState } from "react";
 import { ITemplateCardProps } from "@/types/ITemplateCardProps";
 import normalizeCategory from "../lib/normalizeCategory";
+import normalizePrice from "../lib/normalizePrice";
 
 const TemplateCard: React.FC<ITemplateCardProps> = (
   props: ITemplateCardProps
 ): JSX.Element => {
   const [isHovering, setIsHovering] = useState(false);
-
-  const normalizePrice = (price: string): JSX.Element => {
-    if (price === "0") {
-      return <span>Free</span>;
-    } else {
-      return (
-        <span>
-          <span className="text-sm -mr-1">$</span>{" "}
-          <span className="text-lg">{price}</span>
-        </span>
-      );
-    }
-  };
 
   return (
     <div
