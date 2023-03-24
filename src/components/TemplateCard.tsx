@@ -28,7 +28,7 @@ const TemplateCard: React.FC<ITemplateCardProps> = (
     >
       <Link href={`/templates/${props.slug}`}>
         <Image
-          className="w-full h-auto rounded-lg"
+          className="w-full h-auto rounded-lg border border-gray-300"
           src={props.thumbnailUrl}
           alt="Template thumnbnail image"
           width={600}
