@@ -127,11 +127,7 @@ export async function getServerSideProps(context: any) {
 
   await queryClient.prefetchQuery(["template", slug], async () => {
     const response = await fetchTemplate(slug);
-    console.log(response);
-    if (response.data === "notFound") {
-      console.log("NOT FOUND");
-      throw new Error("404");
-    }
+    if (response.data === "notFound") throw new Error("404");
     else return response;
   });
 
