@@ -37,6 +37,12 @@ const DownloadBox: React.FC<IDownloadBoxProps> = (
   const [alert, setAlert] = useState("Default alert for testing");
   const [showAlert, setShowAlert] = useState(false);
 
+  const handleKeyPress = (e: any) => {
+    if (e.key === 'Enter') {
+      document.getElementById('create-download-btn')?.click();
+    }
+  }
+
   const downloadMutation = useMutation({
     mutationFn: async (download: IDownload) => {
       const res = await fetch("https://api.kreativetemplates.co/v1/downloads", {
@@ -137,10 +143,12 @@ const DownloadBox: React.FC<IDownloadBoxProps> = (
               setShowAlert(false);
               setEmail(e.target.value);
             }}
+            onKeyUp={handleKeyPress}
           />
         </div>
         <button
           type="button"
+          id="create-download-btn"
           onClick={(e) => postDownload(e)}
           className="w-full mt-2 rounded-md bg-indigo-600 py-2.5 px-3.5 text-sm font-semibold text-white shadow-md hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
         >
