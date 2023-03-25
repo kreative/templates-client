@@ -1,25 +1,40 @@
 import Link from "next/link";
 import normalizeCategory from "@/lib/normalizeCategory";
 
-function ClickableItem({ name, link, selected }) {
+interface ClickableItemProps {
+  name: string;
+  link: string;
+  selected: boolean;
+}
+
+interface SidebarProps {
+  categories: any;
+  selectedCategory: string | null;
+}
+
+const ClickableItem: React.FC<ClickableItemProps> = (
+  props: ClickableItemProps
+) => {
   return (
     <div className="py-0.5">
-      <Link href={link}>
+      <Link href={props.link}>
         <p
           className={`${
-            selected ? "text-purple-700" : "text-gray-600 hover:text-purple-700"
+            props.selected
+              ? "text-purple-700"
+              : "text-gray-600 hover:text-purple-700"
           } cursor-pointer rounded-md text-2xl font-medium`}
-          aria-current={selected ? "page" : undefined}
+          aria-current={props.selected ? "page" : undefined}
         >
-          {name}
+          {props.name}
         </p>
       </Link>
     </div>
   );
-}
+};
 
-export default function Sidebar({ categories, selectedCategory }) {
-  const _categories = Array.from(categories);
+const Sidebar: React.FC<SidebarProps> = (props: SidebarProps) => {
+  const _categories = Array.from(props.categories);
 
   return (
     <div>
@@ -28,22 +43,28 @@ export default function Sidebar({ categories, selectedCategory }) {
         <ClickableItem
           key="recently-added"
           name="Recently added"
-          link='/obsidian'
-          selected={selectedCategory === null}
+          link="/obsidian"
+          selected={props.selectedCategory === null}
         />
         {_categories.map((category: any) => (
           <ClickableItem
             key={category.name}
             name={normalizeCategory(category.name)}
             link={`/obsidian/categories/${category.name}`}
-            selected={category.name === selectedCategory}
+            selected={category.name === props.selectedCategory}
           />
         ))}
       </div>
       <div id="become-an-author">
         <p className="text-sm pb-2 text-gray-500">HAVE A TEMPLATE?</p>
-        <ClickableItem name="Submit your own" link='/become-an-author' selected={null} />
+        <ClickableItem
+          name="Submit your own"
+          link="/become-an-author"
+          selected={false}
+        />
       </div>
     </div>
   );
-}
+};
+
+export default Sidebar;
