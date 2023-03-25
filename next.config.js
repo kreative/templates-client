@@ -28,7 +28,12 @@ const nextConfig = {
         source: "/templates",
         destination: "/obsidian",
         permanent: true,
-      }
+      },
+      {
+        source: "/categories",
+        destination: "/obsidian",
+        permanent: true,
+      },
     ];
   },
 };
