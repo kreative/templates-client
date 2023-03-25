@@ -6,7 +6,9 @@ interface DownloadButtonProps {
   fileName: string;
 }
 
-const DownloadButton: React.FC<DownloadButtonProps> = (props: DownloadButtonProps) => {
+const DownloadButton: React.FC<DownloadButtonProps> = (
+  props: DownloadButtonProps
+) => {
   const [isLoading, setIsLoading] = useState(false);
 
   const handleDownloadClick = async () => {

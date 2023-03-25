@@ -138,8 +138,8 @@ export async function getServerSideProps(context: any) {
       redirect: {
         destination: "/404",
         permanent: false,
-      }
-    }
+      },
+    };
   }
 
   return {

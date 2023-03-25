@@ -13,7 +13,7 @@ interface ITemplateCardProps {
   thumbnailUrl: string;
   slug: string;
   categoryName: string;
-};
+}
 
 const TemplateCard: React.FC<ITemplateCardProps> = (
   props: ITemplateCardProps
@@ -50,7 +50,9 @@ const TemplateCard: React.FC<ITemplateCardProps> = (
         <div className="ml-4">
           <Link href={`/templates/${props.slug}`}>
             <h3>
-              <span className="text-xl font-bold hover:text-purple-700">{props.name}</span>{" "}
+              <span className="text-xl font-bold hover:text-purple-700">
+                {props.name}
+              </span>{" "}
               <span className={isHovering ? "inline-block" : "hidden"}>
                 <span className="text-gray-500">for</span>{" "}
                 {normalizePrice(props.price)}

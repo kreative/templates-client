@@ -38,10 +38,10 @@ const DownloadBox: React.FC<IDownloadBoxProps> = (
   const [showAlert, setShowAlert] = useState(false);
 
   const handleKeyPress = (e: any) => {
-    if (e.key === 'Enter') {
-      document.getElementById('create-download-btn')?.click();
+    if (e.key === "Enter") {
+      document.getElementById("create-download-btn")?.click();
     }
-  }
+  };
 
   const downloadMutation = useMutation({
     mutationFn: async (download: IDownload) => {
