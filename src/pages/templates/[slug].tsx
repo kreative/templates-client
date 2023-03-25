@@ -33,7 +33,6 @@ export default function SingleTemplate(props: any): JSX.Element | undefined {
       <Navbar />
       <main>
         <div className="mx-auto max-w-7xl px-6 pt-10" aria-label="Top">
-          {!data && <div>No template found</div>}
           {data && (
             <div>
               <div className="grid grid-cols-3 gap-4">
@@ -55,6 +54,7 @@ export default function SingleTemplate(props: any): JSX.Element | undefined {
                         templateId={data.id}
                         ip={props.ipAddress}
                         fileUrl={data.fileUrl}
+                        fileName={data.name}
                       />
                     </div>
                     <div className="pt-8">
