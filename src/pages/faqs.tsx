@@ -1,5 +1,6 @@
 import { NextSeo } from "next-seo";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 const faqs = [
   {
@@ -80,6 +81,7 @@ export default function FAQs() {
           </div>
         </div>
       </main>
+      <Footer />
     </div>
   );
 }

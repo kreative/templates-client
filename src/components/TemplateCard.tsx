@@ -49,13 +49,13 @@ const TemplateCard: React.FC<ITemplateCardProps> = (
         />
         <div className="ml-4">
           <Link href={`/templates/${props.slug}`}>
-            <h3>
+            <h2>
               <span className="text-xl font-bold hover:text-purple-700">{props.name}</span>{" "}
               <span className={isHovering ? "inline-block" : "hidden"}>
                 <span className="text-gray-500">for</span>{" "}
                 {normalizePrice(props.price)}
               </span>
-            </h3>
+            </h2>
           </Link>
           <p>
             by {props.authorName} <span className="text-gray-500">in</span>{" "}
