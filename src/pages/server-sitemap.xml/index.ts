@@ -1,12 +1,12 @@
 // pages/server-sitemap.xml/index.tsx
-import { getServerSideSitemapLegacy, ISitemapField } from 'next-sitemap';
-import { GetServerSideProps } from 'next';
+import { getServerSideSitemapLegacy, ISitemapField } from "next-sitemap";
+import { GetServerSideProps } from "next";
 
 const getSitemapUrls = async (API_URL: string) => {
   const res = await fetch(API_URL);
   const payload = await res.json();
   return payload.data;
-}
+};
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const fields: ISitemapField[] = [];
@@ -26,8 +26,8 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     });
   });
 
-  return getServerSideSitemapLegacy(ctx, fields)
-}
+  return getServerSideSitemapLegacy(ctx, fields);
+};
 
 // Default export to prevent next.js errors
-export default function Sitemap() { }
+export default function Sitemap() {}
