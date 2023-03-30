@@ -1,4 +1,4 @@
-import Head from "next/head";
+import { NextSeo } from "next-seo";
 import Navbar from "../components/Navbar";
 
 const faqs = [
@@ -32,14 +32,17 @@ const faqs = [
 export default function FAQs() {
   return (
     <div>
-      <Head>
-        <title>FAQs - Kreative Templates</title>
-        <meta
-          name="description"
-          content="Frequently asked question for Kreative Templates"
-        />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <NextSeo
+        title="FAQs - Kreative Templates"
+        description="Frequently asked question for Kreative Templates"
+        canonical="https://kreativetemplates.co/faqs"
+        openGraph={{
+          type: "website",
+          url: "https://kreativetemplates.co/faqs",
+          title: "FAQs - Kreative Templates",
+          description: "Frequently asked question for Kreative Templates",
+        }}
+      />
       <Navbar />
       <main>
         <div className="bg-white">

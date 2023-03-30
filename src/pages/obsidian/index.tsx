@@ -1,4 +1,4 @@
-import Head from "next/head";
+import { NextSeo } from "next-seo";
 import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
 import fetchCategories from "@/lib/fetchCategories";
 import fetchTemplates from "@/lib/fetchTemplates";
@@ -14,14 +14,18 @@ export default function Home(props: any): JSX.Element {
 
   return (
     <div>
-      <Head>
-        <title>Obsidian Templates - Kreative Templates</title>
-        <meta
-          name="description"
-          content="Obsidian templates - Markdown templates for Obsidian note taking application"
-        />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <NextSeo
+        title="Obsidian Templates - Kreative Templates"
+        description="Obsidian templates - Markdown templates for Obsidian note taking application"
+        canonical="https://kreativetemplates.co/obsidian"
+        openGraph={{
+          type: "website",
+          url: "https://kreativetemplates.co/obsidian",
+          title: "Obsidian Templates - Kreative Templates",
+          description:
+            "Obsidian templates - Markdown templates for Obsidian note taking application",
+        }}
+      />
       <Navbar />
       <main>
         <div className="mx-auto max-w-7xl px-6 pt-2" aria-label="Top">

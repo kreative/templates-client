@@ -1,19 +1,24 @@
 import Head from "next/head";
+import { NextSeo } from "next-seo";
 import { Widget } from "@typeform/embed-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-export default function RequestTemplate(): JSX.Element {
+export default function BecomeAnAuthor(): JSX.Element {
   return (
     <div>
-      <Head>
-        <title>Become an author - Kreative Templates</title>
-        <meta
-          name="description"
-          content="Become an author and sell your own templates to the world"
-        />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <NextSeo
+        title="Become an Author - Kreative Templates"
+        description="Become an author and sell your own templates to the world on Kreative Templates"
+        canonical="https://kreativetemplates.co/become-an-author"
+        openGraph={{
+          type: "website",
+          url: "https://kreativetemplates.co/become-an-author",
+          title: "Become an Author - Kreative Templates",
+          description:
+            "Become an author and sell your own templates to the world on Kreative Templates",
+        }}
+      />
       <Navbar />
       <main>
         <div className="flex justify-center">

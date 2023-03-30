@@ -1,4 +1,4 @@
-import Head from "next/head";
+import { NextSeo } from "next-seo";
 import { Widget } from "@typeform/embed-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -6,14 +6,18 @@ import Footer from "@/components/Footer";
 export default function RequestTemplate(): JSX.Element {
   return (
     <div>
-      <Head>
-        <title>Request Template - Kreative Templates</title>
-        <meta
-          name="description"
-          content="Request a template for our team to make for you, for free!"
-        />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <NextSeo
+        title="Request Template - Kreative Templates"
+        description="Request a template for our team to make for you, for free!"
+        canonical="https://kreativetemplates.co/request-template"
+        openGraph={{
+          type: "website",
+          url: "https://kreativetemplates.co/request-template",
+          title: "Request Template - Kreative Templates",
+          description:
+            "Request a template for our team to make for you, for free!",
+        }}
+      />
       <Navbar />
       <main>
         <div className="flex justify-center">

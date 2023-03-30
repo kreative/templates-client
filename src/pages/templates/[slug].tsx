@@ -1,8 +1,8 @@
-import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
+import { NextSeo } from "next-seo";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import fetchTemplate from "../../lib/fetchTemplate";
@@ -22,14 +22,17 @@ export default function SingleTemplate(props: any): JSX.Element | undefined {
 
   return (
     <div>
-      <Head>
-        <title>{data.name} - Kreative Templates</title>
-        <meta
-          name="description"
-          content={`${data.name} - ${data.tagline} - ${data.description}`}
-        />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <NextSeo
+        title={`${data.name} - Kreative Templates`}
+        description={`${data.name} - ${data.tagline} - ${data.description}`}
+        canonical={`https://kreativetemplates.co/templates/${data.slug}`}
+        openGraph={{
+          type: "website",
+          url: "https://kreativetemplates.co/obsidian",
+          title: `${data.name} - Kreative Templates`,
+          description: `${data.name} - ${data.tagline} - ${data.description}`,
+        }}
+      />
       <Navbar />
       <main>
         <div className="mx-auto max-w-7xl px-6 pt-10" aria-label="Top">
