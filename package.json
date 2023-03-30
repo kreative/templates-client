@@ -6,7 +6,8 @@
     "dev": "doppler run -- next dev",
     "build": "next build",
     "start": "doppler run -- next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "postbuild": "next-sitemap --config sitemap.config.js"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.11",
