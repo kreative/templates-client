@@ -4,29 +4,29 @@ import Footer from "../components/Footer";
 
 const faqs = [
   {
-    question: 'What is Kreative Templates?',
+    question: "What is Kreative Templates?",
     answer:
-      'Kreative Templates is a website that provides free templates for Obsidian (and more). We currently provide templates for Obsidian, but are working on supporting more applications.'
+      "Kreative Templates is a website that provides free templates for Obsidian (and more). We currently provide templates for Obsidian, but are working on supporting more applications.",
   },
   {
-    question: 'Are all the templates just for Obsidian?',
+    question: "Are all the templates just for Obsidian?",
     answer:
-      'Yes,  all the templates are for Obsidian. We are working on supporting more applications in the future.'
+      "Yes,  all the templates are for Obsidian. We are working on supporting more applications in the future.",
   },
   {
-    question: 'Are the templates free?',
+    question: "Are the templates free?",
     answer:
-      'Yes, all templates are free to download and use. We do not charge for any of our templates. However, we are working on allowing other authors to list and sell their templates in the coming future.'
+      "Yes, all templates are free to download and use. We do not charge for any of our templates. However, we are working on allowing other authors to list and sell their templates in the coming future.",
   },
   {
-    question: 'How do I download the templates?',
+    question: "How do I download the templates?",
     answer:
-      'You can download the templates by clicking on the "Download" button on the template page. You will be asked to provide an email for us to send the template too.'
+      'You can download the templates by clicking on the "Download" button on the template page. You will be asked to provide an email for us to send the template too.',
   },
   {
-    question: 'How do I use the templates?',
+    question: "How do I use the templates?",
     answer:
-      'The templates are provided as a markdown file. You can import or copy and paste the contents of the markdown file into Obsidian.'
+      "The templates are provided as a markdown file. You can import or copy and paste the contents of the markdown file into Obsidian.",
   },
 ];
 
