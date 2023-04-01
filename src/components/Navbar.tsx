@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
@@ -5,7 +6,7 @@ import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
 const navigation = [
-  { name: "For Obsidian", href: "/" },
+  { name: "What's Obsidian?", href: "/" },
   { name: "FAQs", href: "/faqs" },
   {
     name: "Contact us",
@@ -27,13 +28,12 @@ export default function Example() {
         <div className="flex lg:flex-1">
           <Link href="/" className="-m-1.5 p-1.5">
             <span className="sr-only">Kreative Templates</span>
-            <Image
+            <img
               className="h-7 w-auto"
               src="https://cdn.kreativeusa.com/k-templates/kreativetemplates-type-logo.png"
-              alt=""
-              height={50}
-              width={300}
+              alt="Kreative Templates logo in color"
             />
+            <p className="text-md tracking-widest">FOR OBSIDIAN</p>
           </Link>
         </div>
         <div className="flex lg:hidden">
@@ -79,7 +79,7 @@ export default function Example() {
             <Link href="#" className="-m-1.5 p-1.5">
               <span className="sr-only">Kreative Templates</span>
               <Image
-                className="h-8 w-auto sm:hidden"
+                className="h-7 w-auto sm:hidden"
                 src="https://cdn.kreativeusa.com/k-templates/kreativetemplates-type-logo.png"
                 alt=""
                 height={50}
