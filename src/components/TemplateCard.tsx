@@ -1,8 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import normalizeCategory from "../lib/normalizeCategory";
+import normalizeText from "../lib/normalizeText";
 import normalizePrice from "../lib/normalizePrice";
+import { Cloudinary } from "@cloudinary/url-gen";
+import { fill } from "@cloudinary/url-gen/actions/resize";
+import { AdvancedImage } from "@cloudinary/react";
+import { autoGravity } from "@cloudinary/url-gen/qualifiers/gravity";
 
 interface ITemplateCardProps {
   name: string;
@@ -13,12 +17,22 @@ interface ITemplateCardProps {
   thumbnailUrl: string;
   slug: string;
   categoryName: string;
-};
+}
 
 const TemplateCard: React.FC<ITemplateCardProps> = (
   props: ITemplateCardProps
 ): JSX.Element => {
   const [isHovering, setIsHovering] = useState(false);
+
+  const cld = new Cloudinary({
+    cloud: {
+      cloudName: "dlazo25rt",
+    },
+  });
+
+  const thumbnail = cld.image("ktemplates-thumbnails/Cool_Template_4_sf6bd2");
+
+  thumbnail.resize(fill().width(600).height(400).gravity(autoGravity()));
 
   return (
     <div
@@ -27,14 +41,11 @@ const TemplateCard: React.FC<ITemplateCardProps> = (
       onMouseLeave={() => setIsHovering(false)}
     >
       <Link href={`/templates/${props.slug}`}>
-        <Image
+        <AdvancedImage
+          cldImg={thumbnail}
           className="w-full h-auto rounded-lg border border-gray-300"
-          src={props.thumbnailUrl}
           alt="Template thumnbnail image"
-          width={600}
-          height={600}
-          placeholder="blur"
-          blurDataURL={props.thumbnailUrl}
+          
         />
       </Link>
       <div className="flex items-start pt-4">
@@ -50,7 +61,9 @@ const TemplateCard: React.FC<ITemplateCardProps> = (
         <div className="ml-4">
           <Link href={`/templates/${props.slug}`}>
             <h2>
-              <span className="text-xl font-bold hover:text-purple-700">{props.name}</span>{" "}
+              <span className="text-xl font-bold hover:text-purple-700">
+                {props.name}
+              </span>{" "}
               <span className={isHovering ? "inline-block" : "hidden"}>
                 <span className="text-gray-500">for</span>{" "}
                 {normalizePrice(props.price)}
@@ -63,7 +76,7 @@ const TemplateCard: React.FC<ITemplateCardProps> = (
               href={`/categories/${props.categoryName}`}
               className="underline hover:text-purple-500"
             >
-              {normalizeCategory(props.categoryName)}
+              {normalizeText(props.categoryName)}
             </Link>
           </p>
         </div>
