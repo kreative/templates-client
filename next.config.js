@@ -20,7 +20,7 @@ const nextConfig = {
         hostname: "res.cloudinary.com",
         port: "",
         pathname: "/**",
-      }
+      },
     ],
   },
   async redirects() {

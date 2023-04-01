@@ -45,7 +45,6 @@ const TemplateCard: React.FC<ITemplateCardProps> = (
           cldImg={thumbnail}
           className="w-full h-auto rounded-lg border border-gray-300"
           alt="Template thumnbnail image"
-          
         />
       </Link>
       <div className="flex items-start pt-4">
