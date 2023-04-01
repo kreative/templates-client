@@ -8,8 +8,8 @@ import Footer from "@/components/Footer";
 import TemplateCard from "@/components/TemplateCard";
 
 export default function Home(props: any): JSX.Element {
-  const { data } = useQuery(["templates"], () => {
-    return fetchTemplates();
+  const { data } = useQuery(["templates"], async () => {
+    return await fetchTemplates();
   });
 
   return (
@@ -43,7 +43,7 @@ export default function Home(props: any): JSX.Element {
                 <h1 className="text-5xl font-bold text-black pb-6">
                   Obsidian templates
                 </h1>
-                <p className="text-lg text-gray-500">
+                <p className="text-xl text-gray-500">
                   Obsidian is a powerful knowledge management tool that lets you
                   create and organize various types of content using markdown
                   files. Boost your workflow with our pre-designed templates.
@@ -81,8 +81,8 @@ export async function getServerSideProps() {
   const queryClient = new QueryClient();
   const categories = await fetchCategories();
 
-  await queryClient.prefetchQuery(["templates"], () => {
-    return fetchTemplates();
+  await queryClient.prefetchQuery(["templates"], async () => {
+    return await fetchTemplates();
   });
 
   return {
