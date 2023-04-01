@@ -12,10 +12,6 @@ import normalizePrice from "../../lib/normalizePrice";
 import DownloadBox from "../../components/DownloadBox";
 import AuthorBox from "../../components/AuthorBox";
 import Tag from "../../components/Tag";
-import { IGalleryImage } from "../../types/IGalleryImage";
-
-// @ts-ignore
-import { SlideshowLightbox, initLightboxJS } from "lightbox.js-react";
 
 export default function SingleTemplate(props: any): JSX.Element | undefined {
   const router = useRouter();
@@ -24,12 +20,6 @@ export default function SingleTemplate(props: any): JSX.Element | undefined {
     const response = await fetchTemplate(slug);
     if (response.data === "notFound") router.push("/404");
     else return response;
-  });
-
-  const galleryImages: IGalleryImage[] = [];
-
-  useEffect(() => {
-    initLightboxJS(process.env.NEXT_PUBLIC_LIGHTBOX_KEY, "team");
   });
 
   return (
@@ -101,32 +91,13 @@ export default function SingleTemplate(props: any): JSX.Element | undefined {
                   </div>
                 </div>
                 <div className="col-span-2 pl-6">
-                  <SlideshowLightbox
-                    lightboxIdentifier="lightbox1"
-                    framework="next"
-                    images={[
-                      {
-                        src: data.thumbnailUrl,
-                        alt: `${data.name} thumbnail image`,
-                      },
-                      ...data.galleryImages.map((image: string) => ({
-                        src: image,
-                        alt: `${
-                          data.name
-                        } gallery image ${data.galleryImages.indexOf(image)}`,
-                      })),
-                    ]}
-                  >
-                    <Image
-                      src={data.thumbnailUrl}
-                      alt={`${data.name} thumbnail image`}
-                      className="w-full h-auto rounded-xl border border-gray-300"
-                      width={800}
-                      height={600}
-                      data-lightboxjs="lightbox1"
-                      quality={80}
-                    />
-                  </SlideshowLightbox>
+                  <Image
+                    src={data.thumbnailUrl}
+                    alt={`${data.name} thumbnail image`}
+                    className="w-full h-auto rounded-xl border border-gray-300"
+                    width={800}
+                    height={600}
+                  />
                   <div className="grid grid-cols-2 gap-4 pt-4">
                     {data.galleryImages.map((image: string) => (
                       <div key={image} className="col-span-1">
