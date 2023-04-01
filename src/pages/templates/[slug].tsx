@@ -1,8 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { useEffect } from "react";
 import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
 import { NextSeo } from "next-seo";
+import "lightbox.js-react/dist/index.css";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import fetchTemplate from "../../lib/fetchTemplate";
@@ -10,6 +12,10 @@ import normalizePrice from "../../lib/normalizePrice";
 import DownloadBox from "../../components/DownloadBox";
 import AuthorBox from "../../components/AuthorBox";
 import Tag from "../../components/Tag";
+import { IGalleryImage } from "../../types/IGalleryImage";
+
+// @ts-ignore
+import { SlideshowLightbox, initLightboxJS } from "lightbox.js-react";
 
 export default function SingleTemplate(props: any): JSX.Element | undefined {
   const router = useRouter();
@@ -20,6 +26,12 @@ export default function SingleTemplate(props: any): JSX.Element | undefined {
     else return response;
   });
 
+  const galleryImages: IGalleryImage[] = [];
+
+  useEffect(() => {
+    initLightboxJS(process.env.NEXT_PUBLIC_LIGHTBOX_KEY, "team");
+  });
+
   return (
     <div>
       <NextSeo
@@ -28,7 +40,7 @@ export default function SingleTemplate(props: any): JSX.Element | undefined {
         canonical={`https://kreativetemplates.co/templates/${data.slug}`}
         openGraph={{
           type: "website",
-          url: "https://kreativetemplates.co/obsidian",
+          url: `https://kreativetemplates.co/templates/${data.slug}`,
           title: `${data.name} - Kreative Templates`,
           description: `${data.name} - ${data.tagline} - ${data.description}`,
         }}
@@ -45,7 +57,7 @@ export default function SingleTemplate(props: any): JSX.Element | undefined {
                     <p className="text-gray-700 text-xl">
                       {normalizePrice(data.price)}{" "}
                       <span className="text-gray-400">for</span>{" "}
-                      <Link href="/obsidian">
+                      <Link href="/">
                         <span className="underline">
                           {data.application.charAt(0).toUpperCase() +
                             data.application.slice(1)}
@@ -89,13 +101,32 @@ export default function SingleTemplate(props: any): JSX.Element | undefined {
                   </div>
                 </div>
                 <div className="col-span-2 pl-6">
-                  <Image
-                    src={data.thumbnailUrl}
-                    alt={`${data.name} thumbnail image`}
-                    className="w-full h-auto rounded-xl border border-gray-300"
-                    width={800}
-                    height={600}
-                  />
+                  <SlideshowLightbox
+                    lightboxIdentifier="lightbox1"
+                    framework="next"
+                    images={[
+                      {
+                        src: data.thumbnailUrl,
+                        alt: `${data.name} thumbnail image`,
+                      },
+                      ...data.galleryImages.map((image: string) => ({
+                        src: image,
+                        alt: `${
+                          data.name
+                        } gallery image ${data.galleryImages.indexOf(image)}`,
+                      })),
+                    ]}
+                  >
+                    <Image
+                      src={data.thumbnailUrl}
+                      alt={`${data.name} thumbnail image`}
+                      className="w-full h-auto rounded-xl border border-gray-300"
+                      width={800}
+                      height={600}
+                      data-lightboxjs="lightbox1"
+                      quality={80}
+                    />
+                  </SlideshowLightbox>
                   <div className="grid grid-cols-2 gap-4 pt-4">
                     {data.galleryImages.map((image: string) => (
                       <div key={image} className="col-span-1">
@@ -141,8 +172,8 @@ export async function getServerSideProps(context: any) {
       redirect: {
         destination: "/404",
         permanent: false,
-      }
-    }
+      },
+    };
   }
 
   return {

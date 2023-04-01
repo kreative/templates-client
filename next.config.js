@@ -20,18 +20,13 @@ const nextConfig = {
   async redirects() {
     return [
       {
-        source: "/",
-        destination: "/obsidian",
-        permanent: true,
-      },
-      {
         source: "/templates",
-        destination: "/obsidian",
+        destination: "/",
         permanent: true,
       },
       {
         source: "/categories",
-        destination: "/obsidian",
+        destination: "/",
         permanent: true,
       },
     ];
