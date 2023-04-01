@@ -4,7 +4,6 @@ import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
 import { NextSeo } from "next-seo";
-import "lightbox.js-react/dist/index.css";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import fetchTemplate from "../../lib/fetchTemplate";
