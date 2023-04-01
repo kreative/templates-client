@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const navigation = {
   main: [
-    { name: "For Obsidian", href: "/" },
+    { name: "What's Obsidian?", href: "/" },
     { name: "FAQs", href: "/faqs" },
     {
       name: "Contact us",
