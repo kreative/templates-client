@@ -1,4 +1,4 @@
-import normalizeCategory from "../lib/normalizeCategory";
+import normalizeText from "../lib/normalizeText";
 
 interface ITagProps {
   text: string;
@@ -25,7 +25,7 @@ const Tag: React.FC<ITagProps> = (props: ITagProps): JSX.Element => {
       >
         <circle cx={4} cy={4} r={3} />
       </svg>
-      {normalizeCategory(props.text)}
+      {normalizeText(props.text)}
     </span>
   );
 };

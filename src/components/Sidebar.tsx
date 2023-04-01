@@ -1,5 +1,5 @@
 import Link from "next/link";
-import normalizeCategory from "@/lib/normalizeCategory";
+import normalizeText from "@/lib/normalizeText";
 
 interface ClickableItemProps {
   name: string;
@@ -22,7 +22,7 @@ const ClickableItem: React.FC<ClickableItemProps> = (
           className={`${
             props.selected
               ? "text-purple-700"
-              : "text-gray-600 hover:text-purple-700"
+              : "text-gray-600 hover:text-red-600"
           } cursor-pointer rounded-md text-2xl font-medium`}
           aria-current={props.selected ? "page" : undefined}
         >
@@ -41,15 +41,15 @@ const Sidebar: React.FC<SidebarProps> = (props: SidebarProps) => {
       <div id="category-list" className="pb-8">
         <p className="text-sm pb-2 text-gray-500">BROWSE BY CATEGORY</p>
         <ClickableItem
-          key="recently-added"
-          name="Recently added"
+          key="all"
+          name="All Templates"
           link="/"
           selected={props.selectedCategory === null}
         />
         {_categories.map((category: any) => (
           <ClickableItem
             key={category.name}
-            name={normalizeCategory(category.name)}
+            name={normalizeText(category.name)}
             link={`/categories/${category.name}`}
             selected={category.name === props.selectedCategory}
           />
