@@ -93,25 +93,23 @@ export default function SingleTemplate(props: any): JSX.Element | undefined {
                   <Image
                     src={data.thumbnailUrl}
                     alt={`${data.name} thumbnail image`}
-                    className="w-full h-auto rounded-xl border border-gray-300"
+                    className="w-full h-auto rounded-xl border border-gray-300 mb-6"
                     width={800}
                     height={600}
                   />
-                  <div className="grid grid-cols-2 gap-4 pt-4">
-                    {data.galleryImages.map((image: string) => (
-                      <div key={image} className="col-span-1">
-                        <Image
-                          src={image}
-                          alt={`${
-                            data.name
-                          } gallery image ${data.galleryImages.indexOf(image)}`}
-                          className="w-full h-auto rounded-xl border border-gray-300"
-                          width={400}
-                          height={300}
-                        />
-                      </div>
-                    ))}
-                  </div>
+                  {data.galleryImages.map((image: string) => (
+                    <div key={image} className="col-span-1">
+                      <Image
+                        src={image}
+                        alt={`${
+                          data.name
+                        } gallery image ${data.galleryImages.indexOf(image)}`}
+                        className="w-full h-auto rounded-xl border border-gray-300 mb-6"
+                        width={400}
+                        height={300}
+                      />
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
