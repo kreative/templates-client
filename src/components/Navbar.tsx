@@ -5,7 +5,7 @@ import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
 const navigation = [
-  { name: "For Obsidian", href: "/obsidian" },
+  { name: "For Obsidian", href: "/" },
   { name: "FAQs", href: "/faqs" },
   {
     name: "Contact us",
@@ -25,7 +25,7 @@ export default function Example() {
         aria-label="Global"
       >
         <div className="flex lg:flex-1">
-          <Link href="/obsidian" className="-m-1.5 p-1.5">
+          <Link href="/" className="-m-1.5 p-1.5">
             <span className="sr-only">Kreative Templates</span>
             <Image
               className="h-7 w-auto"

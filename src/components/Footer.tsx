@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const navigation = {
   main: [
-    { name: "For Obsidian", href: "/obsidian" },
+    { name: "For Obsidian", href: "/" },
     { name: "FAQs", href: "/faqs" },
     {
       name: "Contact us",
@@ -20,7 +20,7 @@ export default function Footer() {
     <footer className="bg-white border-t border-gray-300 mt-24">
       <div className="mx-auto max-w-7xl overflow-hidden pb-10 pt-12 px-6 sm:pb-12 lg:px-8">
         <div className="pb-10">
-          <Link href="/obsidian">
+          <Link href="/">
             <svg
               width="271"
               height="40"

@@ -43,14 +43,14 @@ const Sidebar: React.FC<SidebarProps> = (props: SidebarProps) => {
         <ClickableItem
           key="recently-added"
           name="Recently added"
-          link="/obsidian"
+          link="/"
           selected={props.selectedCategory === null}
         />
         {_categories.map((category: any) => (
           <ClickableItem
             key={category.name}
             name={normalizeCategory(category.name)}
-            link={`/obsidian/categories/${category.name}`}
+            link={`/categories/${category.name}`}
             selected={category.name === props.selectedCategory}
           />
         ))}
