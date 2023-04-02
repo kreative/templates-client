@@ -58,7 +58,7 @@ export default function Home(props: any): JSX.Element {
                       key={template.id}
                       name={template.name}
                       tagline={template.tagline}
-                      thumbnailUrl={template.thumbnailUrl}
+                      thumbnailCloudinaryId={template.thumbnailCloudinaryId}
                       authorName={template.author.displayName}
                       authorAvatar={template.author.avatarUrl}
                       price={template.price}

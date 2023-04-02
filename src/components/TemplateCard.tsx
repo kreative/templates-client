@@ -14,7 +14,7 @@ interface ITemplateCardProps {
   authorAvatar: string;
   price: string;
   tagline: string;
-  thumbnailUrl: string;
+  thumbnailCloudinaryId: string;
   slug: string;
   categoryName: string;
 }
@@ -30,8 +30,7 @@ const TemplateCard: React.FC<ITemplateCardProps> = (
     },
   });
 
-  const thumbnail = cld.image("ktemplates-thumbnails/Cool_Template_4_sf6bd2");
-
+  const thumbnail = cld.image(props.thumbnailCloudinaryId);
   thumbnail.resize(fill().width(600).height(400).gravity(autoGravity()));
 
   return (

@@ -1,5 +1,4 @@
 import { NextSeo } from "next-seo";
-import { useRouter } from "next/router";
 import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
 import fetchCategories from "@/lib/fetchCategories";
 import fetchTemplates from "@/lib/fetchTemplates";
@@ -65,7 +64,7 @@ export default function CategoryPage(props: any): JSX.Element {
                       key={template.id}
                       name={template.name}
                       tagline={template.tagline}
-                      thumbnailUrl={template.thumbnailUrl}
+                      thumbnailCloudinaryId={template.thumbnailCloudinaryId}
                       authorName={template.author.displayName}
                       authorAvatar={template.author.avatarUrl}
                       price={template.price}
