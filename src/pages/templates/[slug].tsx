@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
 import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
 import { NextSeo } from "next-seo";
 import Navbar from "../../components/Navbar";
@@ -105,8 +104,8 @@ export default function SingleTemplate(props: any): JSX.Element | undefined {
                           data.name
                         } gallery image ${data.galleryImages.indexOf(image)}`}
                         className="w-full h-auto rounded-xl border border-gray-300 mb-6"
-                        width={400}
-                        height={300}
+                        width={800}
+                        height={600}
                       />
                     </div>
                   ))}
