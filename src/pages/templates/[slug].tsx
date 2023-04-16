@@ -10,6 +10,10 @@ import normalizePrice from "../../lib/normalizePrice";
 import DownloadBox from "../../components/DownloadBox";
 import AuthorBox from "../../components/AuthorBox";
 import Tag from "../../components/Tag";
+import { Cloudinary } from "@cloudinary/url-gen";
+import { fill } from "@cloudinary/url-gen/actions/resize";
+import { autoGravity } from "@cloudinary/url-gen/qualifiers/gravity";
+import { AdvancedImage } from "@cloudinary/react";
 
 export default function SingleTemplate(props: any): JSX.Element | undefined {
   const router = useRouter();
@@ -19,6 +23,15 @@ export default function SingleTemplate(props: any): JSX.Element | undefined {
     if (response.data === "notFound") router.push("/404");
     else return response;
   });
+
+  const cld = new Cloudinary({
+    cloud: {
+      cloudName: "dlazo25rt",
+    },
+  });
+
+  const thumbnail = cld.image(data.thumbnailCloudinaryId);
+  thumbnail.resize(fill().width(800).height(600).gravity(autoGravity()));
 
   return (
     <div>
@@ -89,12 +102,12 @@ export default function SingleTemplate(props: any): JSX.Element | undefined {
                   </div>
                 </div>
                 <div className="col-span-2 pl-6">
-                  <Image
-                    src={data.thumbnailUrl}
+                  <AdvancedImage
+                    cldImg={thumbnail}
+                    className={
+                      "w-full h-auto rounded-xl border border-gray-300 mb-6"
+                    }
                     alt={`${data.name} thumbnail image`}
-                    className="w-full h-auto rounded-xl border border-gray-300 mb-6"
-                    width={800}
-                    height={600}
                   />
                   {data.galleryImages.map((image: string) => (
                     <div key={image} className="col-span-1">
