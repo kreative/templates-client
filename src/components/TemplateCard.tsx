@@ -43,7 +43,7 @@ const TemplateCard: React.FC<ITemplateCardProps> = (
         <AdvancedImage
           cldImg={thumbnail}
           className="w-full h-auto rounded-lg border border-gray-300"
-          alt="Template thumnbnail image"
+          alt={`${props.name} template thumbnail image`}
           
         />
       </Link>
