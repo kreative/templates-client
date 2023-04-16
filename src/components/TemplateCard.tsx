@@ -20,7 +20,7 @@ interface ITemplateCardProps {
 }
 
 const TemplateCard: React.FC<ITemplateCardProps> = (
-  props: ITemplateCardProps
+  props: ITemplateCardProps,
 ): JSX.Element => {
   const [isHovering, setIsHovering] = useState(false);
 
@@ -44,7 +44,6 @@ const TemplateCard: React.FC<ITemplateCardProps> = (
           cldImg={thumbnail}
           className="w-full h-auto rounded-lg border border-gray-300"
           alt={`${props.name} template thumbnail image`}
-          
         />
       </Link>
       <div className="flex items-start pt-4">
