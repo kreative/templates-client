@@ -28,7 +28,6 @@
     "cross-env": "^7.0.3",
     "eslint": "8.34.0",
     "eslint-config-next": "13.1.6",
-    "hover.css": "^2.3.2",
     "jotai": "^2.0.2",
     "next": "13.1.6",
     "next-seo": "^5.15.0",
