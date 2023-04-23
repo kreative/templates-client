@@ -34,7 +34,8 @@ export default function Home(props: any): JSX.Element {
               <div className="sticky top-0 pt-10">
                 <Sidebar
                   categories={props.categories}
-                  selectedCategory={null}
+                  selectedCategory={"all-templates"}
+                  searchQuery={null}
                 />
               </div>
             </div>
