@@ -1,5 +1,7 @@
 import Link from "next/link";
 import normalizeText from "@/lib/normalizeText";
+import SearchBar from "@/components/SearchBar";
+import React from "react";
 
 interface ClickableItemProps {
   name: string;
@@ -10,10 +12,11 @@ interface ClickableItemProps {
 interface SidebarProps {
   categories: any;
   selectedCategory: string | null;
+  searchQuery: string | null;
 }
 
 const ClickableItem: React.FC<ClickableItemProps> = (
-  props: ClickableItemProps
+  props: ClickableItemProps,
 ) => {
   return (
     <div className="py-0.5">
@@ -39,12 +42,15 @@ const Sidebar: React.FC<SidebarProps> = (props: SidebarProps) => {
   return (
     <div>
       <div id="category-list" className="pb-8">
+        <div className={"mb-8 pr-12"}>
+          <SearchBar searchQuery={props.searchQuery} />
+        </div>
         <p className="text-sm pb-2 text-gray-500">BROWSE BY CATEGORY</p>
         <ClickableItem
           key="all"
           name="All Templates"
           link="/"
-          selected={props.selectedCategory === null}
+          selected={props.selectedCategory === "all-templates"}
         />
         {_categories.map((category: any) => (
           <ClickableItem
