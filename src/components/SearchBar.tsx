@@ -6,7 +6,6 @@ interface SearchBarProps {
 }
 
 export default function SearchBar(props: SearchBarProps): JSX.Element {
-  const [searchPopupOpen, setSearchPopupOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState(props.searchQuery || "");
 
   const initiateSearch = (e: any) => {
@@ -36,7 +35,6 @@ export default function SearchBar(props: SearchBarProps): JSX.Element {
           autoComplete={"off"}
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          onClick={() => setSearchPopupOpen(true)}
           onKeyUp={(e) => initiateSearch(e)}
         />
       </div>

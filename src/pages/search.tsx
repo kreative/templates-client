@@ -1,4 +1,3 @@
-import Router from "next/router";
 import { NextSeo } from "next-seo";
 import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
 import Sidebar from "@/components/Sidebar";
