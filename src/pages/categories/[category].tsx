@@ -17,20 +17,20 @@ export default function CategoryPage(props: any): JSX.Element {
     <div>
       <NextSeo
         title={`${normalizeText(
-          props.category
+          props.category,
         )} Obsidian Templates - Kreative Templates`}
         description={`${normalizeText(
-          props.category
+          props.category,
         )} templates for Obsidian - Markdown templates for Obsidian note taking application`}
         canonical="https://kreativetemplates.co/"
         openGraph={{
           type: "website",
           url: "https://kreativetemplates.co/",
           title: `${normalizeText(
-            props.category
+            props.category,
           )} Obsidian Templates - Kreative Templates`,
           description: `${normalizeText(
-            props.category
+            props.category,
           )} templates for Obsidian - Markdown templates for Obsidian note taking application`,
         }}
       />
@@ -43,6 +43,7 @@ export default function CategoryPage(props: any): JSX.Element {
                 <Sidebar
                   categories={props.categories}
                   selectedCategory={props.category}
+                  searchQuery={null}
                 />
               </div>
             </div>
@@ -92,7 +93,7 @@ export async function getServerSideProps(context: any) {
     return await fetchTemplates(category);
   });
 
-  // very basic and crappy search algorith to get the correct category description
+  // very basic and crappy search algorithm to get the correct category description
   // at some point we should probably have the categories be alphabetical from the APi
   // and then use a binary search algo using the alphabet to make splits
   let description: string = "";
