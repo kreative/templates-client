@@ -2,6 +2,7 @@ import Link from "next/link";
 import normalizeText from "@/lib/normalizeText";
 import SearchBar from "@/components/SearchBar";
 import React from "react";
+import { motion } from "framer-motion";
 
 interface ClickableItemProps {
   name: string;
@@ -20,18 +21,25 @@ const ClickableItem: React.FC<ClickableItemProps> = (
 ) => {
   return (
     <div className="py-0.5">
-      <Link href={props.link}>
-        <p
-          className={`${
-            props.selected
-              ? "text-purple-700"
-              : "text-gray-600 hover:text-red-600"
-          } cursor-pointer rounded-md text-2xl font-medium`}
-          aria-current={props.selected ? "page" : undefined}
-        >
-          {props.name}
-        </p>
-      </Link>
+      <motion.div
+        whileHover={{
+          scale: 1.05,
+          transition: { duration: 0.1 },
+        }}
+      >
+        <Link href={props.link}>
+          <p
+            className={`${
+              props.selected
+                ? "text-purple-700"
+                : "text-gray-600 hover:text-red-600"
+            } cursor-pointer rounded-md text-2xl font-medium`}
+            aria-current={props.selected ? "page" : undefined}
+          >
+            {props.name}
+          </p>
+        </Link>
+      </motion.div>
     </div>
   );
 };
