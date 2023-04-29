@@ -11,6 +11,7 @@ jobs:
         id: netlify
         with:
           site_name: 'kreative-templates'
+          max_timeout: 300
       - name: Audit URLs using Lighthouse
         uses: treosh/lighthouse-ci-action@v10
         with:
