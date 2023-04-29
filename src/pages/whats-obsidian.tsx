@@ -51,7 +51,9 @@ export default function WhatsObsidian(): JSX.Element {
             are automatic links between notes that allow you to quickly navigate
             between related concepts and ideas.
           </p>
-          <h2 className={"pt-8 text-2xl text-left font-bold"}>Searchability</h2>
+          <h2 className={"pt-8 text-2xl text-left font-bold"}>
+            Search & Filters
+          </h2>
           <p className={"py-4 text-xl text-left"}>
             Second, Obsidian Notes provides a powerful search function that
             allows you to quickly find the information you need. The search
