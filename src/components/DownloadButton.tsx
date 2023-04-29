@@ -1,12 +1,15 @@
 import { ArrowDownTrayIcon } from "@heroicons/react/24/outline";
-import { useState } from "react";
+import React, { useState } from "react";
+import { motion } from "framer-motion";
 
 interface DownloadButtonProps {
   url: string;
   fileName: string;
 }
 
-const DownloadButton: React.FC<DownloadButtonProps> = (props: DownloadButtonProps) => {
+const DownloadButton: React.FC<DownloadButtonProps> = (
+  props: DownloadButtonProps,
+) => {
   const [isLoading, setIsLoading] = useState(false);
 
   const handleDownloadClick = async () => {
@@ -24,19 +27,26 @@ const DownloadButton: React.FC<DownloadButtonProps> = (props: DownloadButtonProp
   };
 
   return (
-    <button
-      type="button"
-      disabled={isLoading}
-      onClick={handleDownloadClick}
-      className="w-full mt-2 rounded-md bg-indigo-600 py-2.5 px-3.5 text-sm font-semibold text-white shadow-md hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+    <motion.div
+      whileHover={{
+        scale: 0.95,
+        transition: { duration: 0.1 },
+      }}
     >
-      <div className="flex items-center justify-center">
-        <span className="mr-2">
-          {isLoading ? "Downloading..." : "Download local copy"}
-        </span>
-        <ArrowDownTrayIcon className="h-4 w-4" />
-      </div>
-    </button>
+      <motion.button
+        type="button"
+        disabled={isLoading}
+        onClick={handleDownloadClick}
+        className="w-full mt-2 rounded-md bg-indigo-600 py-2.5 px-3.5 text-sm font-semibold text-white shadow-md hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+      >
+        <div className="flex items-center justify-center">
+          <span className="mr-2">
+            {isLoading ? "Downloading..." : "Download local copy"}
+          </span>
+          <ArrowDownTrayIcon className="h-4 w-4" />
+        </div>
+      </motion.button>
+    </motion.div>
   );
 };
 
