@@ -7,7 +7,7 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { motion } from "framer-motion";
 
 const navigation = [
-  { name: "What's Obsidian?", href: "/" },
+  { name: "What's Obsidian?", href: "/whats-obsidian" },
   { name: "FAQs", href: "/faqs" },
   {
     name: "Contact us",
