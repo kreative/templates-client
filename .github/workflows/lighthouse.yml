@@ -11,11 +11,17 @@ jobs:
         id: netlify
         with:
           site_name: 'kreative-templates'
+          max_timeout: 420
       - name: Audit URLs using Lighthouse
         uses: treosh/lighthouse-ci-action@v10
         with:
           urls: |
             ${{ steps.netlify.outputs.url }}
-            ${{ steps.netlify.outputs.url }}/products/
-          budgetPath: ./budget.json
+            ${{ steps.netlify.outputs.url }}/become-an-author
+            ${{ steps.netlify.outputs.url }}/faqs
+            ${{ steps.netlify.outputs.url }}/request-template
+            ${{ steps.netlify.outputs.url }}/whats-obsidian
+            ${{ steps.netlify.outputs.url }}/categories/productivity
+            ${{ steps.netlify.outputs.url }}/templates/dolore-ipsum-est
+          budgetPath: .github/workflows/budget.json
           uploadArtifacts: true
