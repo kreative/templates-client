@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { motion } from "framer-motion";
 
 const navigation = [
   { name: "What's Obsidian?", href: "/" },
@@ -59,12 +60,19 @@ export default function Example() {
           ))}
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <Link
-            href="/become-an-author"
-            className="rounded-md bg-indigo-600 py-2 px-3 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          <motion.div
+            whileHover={{
+              scale: 1.1,
+              transition: { duration: 0.2 },
+            }}
           >
-            Become an author
-          </Link>
+            <Link
+              href="/become-an-author"
+              className="rounded-md bg-indigo-600 py-2 px-3 text-sm font-semibold text-white shadow-sm hover:bg-purple-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            >
+              Become an author
+            </Link>
+          </motion.div>
         </div>
       </nav>
       <Dialog
