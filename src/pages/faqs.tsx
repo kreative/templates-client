@@ -56,7 +56,7 @@ export default function FAQs() {
                 <p className="mt-4 text-base leading-7 text-gray-600">
                   Can’t find the answer you’re looking for?{" "}
                   <a
-                    href="#"
+                    href="https://support.kreativeusa.com/templates/"
                     className="font-semibold text-purple-600 hover:text-indigo-500"
                   >
                     Drop us a line.
