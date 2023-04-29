@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { useState } from "react";
 import { useMutation } from "@tanstack/react-query";
 import {
@@ -61,11 +60,11 @@ const DownloadBox: React.FC<IDownloadBoxProps> = (
       });
       return res.json();
     },
-    onError: (error) => {
+    onError: () => {
       setAlert("Uh oh. Something's wrong, please try again soon!");
       setShowAlert(true);
     },
-    onSuccess: (data) => {
+    onSuccess: () => {
       setLabel("Template sent to your inbox. Or Download now!");
       setFormStyles("hidden");
       setBtnStyles("block");
