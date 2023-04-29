@@ -49,14 +49,21 @@ export default function Example() {
         </div>
         <div className="hidden lg:flex lg:gap-x-8">
           {navigation.map((item) => (
-            <Link
-              key={item.name}
-              href={item.href}
-              className="text-md font-normal leading-6 text-gray-900"
-              target={item.href.startsWith("http") ? "_blank" : undefined}
+            <motion.div
+              whileHover={{
+                scale: 0.95,
+                transition: { duration: 0.1 },
+              }}
             >
-              {item.name}
-            </Link>
+              <Link
+                key={item.name}
+                href={item.href}
+                className="text-lg font-normal leading-6 text-gray-800"
+                target={item.href.startsWith("http") ? "_blank" : undefined}
+              >
+                {item.name}
+              </Link>
+            </motion.div>
           ))}
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
