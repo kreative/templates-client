@@ -23,5 +23,5 @@ jobs:
             ${{ steps.netlify.outputs.url }}/whats-obsidian
             ${{ steps.netlify.outputs.url }}/categories/productivity
             ${{ steps.netlify.outputs.url }}/templates/dolore-ipsum-est
-          budgetPath: ./budget.json
+          budgetPath: .github/workflows/budget.json
           uploadArtifacts: true
