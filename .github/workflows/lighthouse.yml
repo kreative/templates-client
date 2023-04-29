@@ -17,6 +17,12 @@ jobs:
         with:
           urls: |
             ${{ steps.netlify.outputs.url }}
-            ${{ steps.netlify.outputs.url }}/products/
+            ${{ steps.netlify.outputs.url }}/become-an-author
+            ${{ steps.netlify.outputs.url }}/faqs
+            ${{ steps.netlify.outputs.url }}/request-template
+            ${{ steps.netlify.outputs.url }}/whats-obsidian
+            ${{ steps.netlify.outputs.url }}/404
+            ${{ steps.netlify.outputs.url }}/categories/productivity
+            ${{ steps.netlify.outputs.url }}/templates/dolore-ipsum-est
           budgetPath: ./budget.json
           uploadArtifacts: true
