@@ -2,13 +2,13 @@ import { ArrowDownTrayIcon } from "@heroicons/react/24/outline";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 
-interface DownloadButtonProps {
+interface IDownloadButtonProps {
   url: string;
   fileName: string;
 }
 
-const DownloadButton: React.FC<DownloadButtonProps> = (
-  props: DownloadButtonProps,
+const DownloadButton: React.FC<IDownloadButtonProps> = (
+  props: IDownloadButtonProps,
 ) => {
   const [isLoading, setIsLoading] = useState(false);
 

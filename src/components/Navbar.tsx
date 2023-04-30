@@ -17,7 +17,7 @@ const navigation = [
   { name: "Request templates", href: "/request-template" },
 ];
 
-export default function Example() {
+export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
