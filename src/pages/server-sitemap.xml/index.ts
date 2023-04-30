@@ -1,12 +1,7 @@
 // pages/server-sitemap.xml/index.tsx
-import { getServerSideSitemapLegacy, ISitemapField } from 'next-sitemap';
-import { GetServerSideProps } from 'next';
-
-const getSitemapUrls = async (API_URL: string) => {
-  const res = await fetch(API_URL);
-  const payload = await res.json();
-  return payload.data;
-}
+import { getServerSideSitemapLegacy, ISitemapField } from "next-sitemap";
+import { GetServerSideProps } from "next";
+import fetchSitemapUrls from "../../lib/fetchSitemapUrls";
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const fields: ISitemapField[] = [];
@@ -16,7 +11,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     "https://api.kreativetemplates.co/v1/authors/sitemap",
   ];
 
-  const urls = await Promise.all(API_URLS.map(getSitemapUrls));
+  const urls = await Promise.all(API_URLS.map(fetchSitemapUrls));
   const flatUrls = urls.flat();
 
   flatUrls.forEach((url) => {
@@ -26,8 +21,8 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     });
   });
 
-  return getServerSideSitemapLegacy(ctx, fields)
-}
+  return getServerSideSitemapLegacy(ctx, fields);
+};
 
 // Default export to prevent next.js errors
-export default function Sitemap() { }
+export default function Sitemap() {}
