@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useRouter } from "next/router";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 
 interface SearchBarProps {
@@ -6,13 +7,14 @@ interface SearchBarProps {
 }
 
 export default function SearchBar(props: SearchBarProps): JSX.Element {
+  const router = useRouter();
   const [searchQuery, setSearchQuery] = useState(props.searchQuery || "");
 
   const initiateSearch = (e: any) => {
     if (e.key === "Enter") {
       if (searchQuery !== "") {
         const encodedSearchQuery = encodeURIComponent(searchQuery);
-        window.location.href = `/search?q=${encodedSearchQuery}`;
+        router.push(`/search?q=${encodedSearchQuery}`);
       }
     }
   };
