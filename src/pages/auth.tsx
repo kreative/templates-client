@@ -13,9 +13,6 @@ export default function AuthPage() {
   const [cookies, setCookie] = useCookies(["kreative_id_key"]);
 
   useEffect(() => {
-    // ?? we never use this again, but it works, should we take it out ??
-    let mounted = true;
-
     // nothing happens unless the key query param loads
     if (!key) return;
 
