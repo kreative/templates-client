@@ -21,6 +21,10 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
+    <div>
+    <div className="bg-red-600 text-center py-2">
+      <p className="text-white">This project has been archived, all data you see is dummy data!</p>
+    </div>
     <header className="bg-white">
       <nav
         className="mx-auto flex max-w-7xl items-center justify-between p-6"
@@ -136,5 +140,6 @@ export default function Navbar() {
         </Dialog.Panel>
       </Dialog>
     </header>
+    </div>
   );
 }
