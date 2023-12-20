@@ -14,8 +14,6 @@ module.exports = {
         allow: "/",
       },
     ],
-    additionalSitemaps: [
-      "https://kreativetemplates.co/server-sitemap.xml",
-    ],
+    additionalSitemaps: ["https://kreativetemplates.co/server-sitemap.xml"],
   },
 };
